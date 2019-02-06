@@ -1,5 +1,7 @@
 language: python
 
+before_install: skip
+
 cache: pip
 
 script: make test
