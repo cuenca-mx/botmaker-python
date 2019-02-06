@@ -22,7 +22,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires=install_requirements,
     setup_requires=['pytest-runner'],
-    tests_require=test_requires,
+    tests_require=[],
     extras_require=dict(
         test=test_requires
     ),
