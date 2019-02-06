@@ -1,6 +1,6 @@
 language: python
 
-before_install: skip
+install: pip install -q .[tests_require]
 
 cache: pip
 
