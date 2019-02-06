@@ -20,14 +20,8 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires=install_requirements,
     setup_requires=['pytest-runner'],
-    tests_require=['pytest', 'pytest-vcr'],
-    extras_require={
-        'dev': [
-            'pytest>=3',
-            'pycodestyle',
-            'coverage'
-        ]
-    },
+    tests_require=[
+        'pytest', 'pytest-vcr', 'pytest', 'pycodestyle', 'coverage'],
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',

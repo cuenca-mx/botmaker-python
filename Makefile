@@ -5,18 +5,18 @@ PYTHON=python3.7
 
 all: test
 
-install-dev:
-		pip install -q -e .[dev]
-
 venv:
 		$(PYTHON) -m venv --prompt botmaker venv
 		source venv/bin/activate
 		pip install --quiet --upgrade pip
 
-test: clean install-dev lint
+install-test:
+		pip install .[test_require]
+
+test: clean install-test lint
 		python setup.py test
 
-coverage: clean install-dev lint
+coverage: clean install-test lint
 		coverage run --source=botmaker setup.py test
 		coverage report -m
 
@@ -34,4 +34,4 @@ release: clean
 		twine upload dist/*
 
 
-.PHONY: all install-dev release test clean-pyc
+.PHONY: all install-test release test clean-pyc

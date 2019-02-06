@@ -1,6 +1,6 @@
 language: python
 
-install: make install-dev
+install: make install-test
 
 cache: pip
 
