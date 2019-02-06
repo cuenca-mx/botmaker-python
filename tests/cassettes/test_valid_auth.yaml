@@ -1,0 +1,38 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['2']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.21.0]
+      access-token: [DUMMY]
+    method: GET
+    uri: https://go.botmaker.com/api/v1.0/auth/credentials
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAO2Qy26CQBSG930Kw7oabop2pyA4o3IVQTYGhjEz3LQC4dL03Ytp3Tdd92xOcv78
+        30m+j5fRMAzKKC4qEDNvI0aucYFC5vU7KTG6459kZYr6FEoHwZTMkzjnt8A1pLXC85LCstazESKE
+        y/JwTXHxKOEOkkhD1KAQuL3b7ilcTIYjjX39FuXHHrFZCpIrtYRjFuU6AbShUa5WgQNmIOVIrGU1
+        UG0SedksdEAJcrUZ9izeQC5wGhp61gOeHLKbph9vviWojlvYItbSNvKhZbkk33ucjA5u92AHPmmG
+        f63eL4W9krZ7ZcnvZPgea+nvOQU72V3Q0eiCWlgrtsmGc8qxl5DwoBwjg+ZNcu9PlbRZCT2Z2tfA
+        asVCXXQwSU9wNx2DNsr8BlmCVwdy3fTn4rwt8mrTPC3e8eWOS/Kv8Y8aXz6/AIh7kdTbAgAA
+    headers:
+      Accept: ['[application/json, application/xml, text/plain]']
+      Access-Control-Allow-Credentials: ['true']
+      Access-Control-Allow-Headers: ['token, content-type, accept-encoding', 'bearer-token,access-token,
+          Content-Type,Authorization,X-Requested-With,Content-Length,Accept,Origin']
+      Access-Control-Allow-Methods: ['GET, POST, PUT, DELETE, OPTIONS, HEAD']
+      Access-Control-Allow-Origin: ['*']
+      Content-Encoding: [gzip]
+      Content-Length: ['339']
+      Content-Type: [application/json]
+      Date: ['Wed, 06 Feb 2019 09:10:12 GMT', 'Wed, 06 Feb 2019 09:10:12 GMT']
+      Server: [BotMaker]
+      Strict-Transport-Security: [max-age=86400; includeSubDomains]
+      Vary: ['Accept-Encoding, User-Agent']
+    status: {code: 200, message: OK}
+version: 1

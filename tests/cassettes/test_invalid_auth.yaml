@@ -1,0 +1,31 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['2']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.21.0]
+      access-token: [DUMMY]
+    method: GET
+    uri: https://go.botmaker.com/api/v1.0/auth/credentials
+  response:
+    body: {string: 401 - Unauthorized}
+    headers:
+      Accept: ['[application/json, application/xml, text/plain]']
+      Access-Control-Allow-Credentials: ['true']
+      Access-Control-Allow-Headers: ['token, content-type, accept-encoding']
+      Access-Control-Allow-Methods: ['GET, POST, PUT, DELETE, OPTIONS, HEAD']
+      Access-Control-Allow-Origin: ['*']
+      Cache-Control: ['must-revalidate,no-cache,no-store']
+      Content-Length: ['18']
+      Content-Type: [text/html;charset=iso-8859-1]
+      Date: ['Wed, 06 Feb 2019 09:07:07 GMT', 'Wed, 06 Feb 2019 09:07:07 GMT']
+      Reason-Phrase: ['JWT strings must contain exactly 2 period characters. Found:
+          0']
+      Server: [BotMaker]
+      Strict-Transport-Security: [max-age=86400; includeSubDomains]
+    status: {code: 401, message: Unauthorized}
+version: 1
