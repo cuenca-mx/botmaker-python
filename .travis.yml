@@ -20,7 +20,9 @@ jobs:
       python: 3.7
       dist: xenial
       sudo: true
-      install: pip install coveralls
+      install:
+        - make install-test
+        - pip install coveralls
       script:
-      - coverage run --source=botmaker setup.py test
-      - coveralls
+        - coverage run --source=botmaker setup.py test
+        - coveralls
