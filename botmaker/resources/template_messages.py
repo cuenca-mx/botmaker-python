@@ -1,4 +1,5 @@
 from botmaker.exc import BotmakerException
+from botmaker.helpers import sanitize_phone_number
 
 from .base import Resource
 
@@ -31,6 +32,8 @@ class TemplateMessage(Resource):
             chat_platform: str = 'whatsapp',
             **params
     ):
+        from_ = sanitize_phone_number(from_)
+        to = sanitize_phone_number(to)
         data = dict(
             chatPlatform=chat_platform,
             chatChannelNumber=from_,
