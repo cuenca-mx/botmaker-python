@@ -1,10 +1,12 @@
 language: python
 
-install: pip install -q .[tests_require]
+install: make install-dev
 
 cache: pip
 
-script: make test
+script:
+  - make lint
+  - python setup.py test
 
 jobs:
   include:
