@@ -11,7 +11,7 @@ venv:
 		pip install --quiet --upgrade pip
 
 install-test:
-		pip install .[test_require]
+		pip install -q .[test]
 
 test: clean install-test lint
 		python setup.py test

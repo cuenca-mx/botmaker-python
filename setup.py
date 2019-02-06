@@ -4,6 +4,8 @@ install_requirements = [
     'requests==2.21.0'
 ]
 
+test_requires = ['pytest', 'pytest-vcr', 'pytest', 'pycodestyle', 'coverage']
+
 with open('README.md', 'r') as f:
     long_description = f.read()
 
@@ -20,8 +22,10 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires=install_requirements,
     setup_requires=['pytest-runner'],
-    tests_require=[
-        'pytest', 'pytest-vcr', 'pytest', 'pycodestyle', 'coverage'],
+    tests_require=test_requires,
+    extras_require=dict(
+        test=test_requires
+    ),
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
