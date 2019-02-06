@@ -7,3 +7,6 @@ def test_template_message(client):
         '5215500000000', '5215522222222', 'phone_number_verification',
         codigo_de_6_digitos='123456')
     assert tm.id
+    assert tm == tm
+    assert repr(tm)
+    assert str(tm)
