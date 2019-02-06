@@ -36,7 +36,7 @@ make release
 import botmaker
 
 
-client = botmaker.Client()
+client = botmaker.Client()  # Will use the env var BOTMAKER_ACCESS_TOKEN
 
 # Send from '5215500000000' to '5215522222222'
 client.template_messages.create(
