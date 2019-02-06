@@ -15,4 +15,5 @@ def test_invalid_auth():
 @pytest.mark.vcr
 def test_valid_auth(client):
     resp = client.get('/auth/credentials')
-    assert resp['accessToken'] == client.access_token
+    expected_resp_key = {'accessToken', 'clientId', 'refreshToken', 'secretId'}
+    assert set(resp.keys()) == expected_resp_key
