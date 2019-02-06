@@ -1,0 +1,36 @@
+interactions:
+- request:
+    body: '{"chatPlatform": "whatsapp", "ruleNameOrId": "phone_number_verification",
+      "params": {"codigo_de_6_digitos": "123456"}, "chatChannelNumber": "5215500000000",
+      "platformContactId": "5215522222222"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['192']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.21.0]
+      access-token: [DUMMY]
+    method: POST
+    uri: https://go.botmaker.com/api/v1.0/intent/v2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAKtWykxRslIyCvDwjgoI8/AKdjUICrYIC3Bx81bSUSooyk/KSc0tVrLKK83JqQUA
+        P5DtqC0AAAA=
+    headers:
+      Accept: ['[application/json, application/xml, text/plain]']
+      Access-Control-Allow-Credentials: ['true']
+      Access-Control-Allow-Headers: ['token, content-type, accept-encoding', 'bearer-token,access-token,
+          Content-Type,Authorization,X-Requested-With,Content-Length,Accept,Origin']
+      Access-Control-Allow-Methods: ['GET, POST, PUT, DELETE, OPTIONS, HEAD']
+      Access-Control-Allow-Origin: ['*']
+      Content-Encoding: [gzip]
+      Content-Length: ['65']
+      Content-Type: [application/json]
+      Date: ['Wed, 06 Feb 2019 11:12:15 GMT', 'Wed, 06 Feb 2019 11:12:15 GMT']
+      Server: [BotMaker]
+      Strict-Transport-Security: [max-age=86400; includeSubDomains]
+      Vary: ['Accept-Encoding, User-Agent']
+    status: {code: 200, message: OK}
+version: 1

@@ -4,12 +4,13 @@ from typing import Optional
 import requests
 
 from .exc import InvalidAuth
-from .resources import Resource
+from .resources import Resource, TemplateMessage
 
 
 class Client:
-
     BASE_URL = 'https://go.botmaker.com/api/v1.0'
+
+    template_messages = TemplateMessage
 
     def __init__(self, access_token: Optional[str] = None):
         self.access_token = access_token or os.environ['BOTMAKER_ACCESS_TOKEN']

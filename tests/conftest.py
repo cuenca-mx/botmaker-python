@@ -8,6 +8,10 @@ def vcr_config():
     config = dict()
     # Replace the Authorization request header with 'DUMMY' in cassettes
     config['filter_headers'] = [('access-token', 'DUMMY')]
+    config['filter_post_data_parameters'] = [
+        ('chatChannelNumber', '5215500000000'),
+        ('platformContactId', '5215522222222')
+    ]
     return config
 
 
