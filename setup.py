@@ -1,7 +1,7 @@
 import setuptools
 
 install_requirements = [
-    'requests==2.21.0'
+    'requests>=2.21.0,<2.22.0'
 ]
 
 test_requires = ['pytest', 'pytest-vcr', 'pytest', 'pycodestyle', 'coverage']
@@ -12,7 +12,7 @@ with open('README.md', 'r') as f:
 
 setuptools.setup(
     name='botmaker',
-    version='0.1.1',
+    version='0.2.0',
     author='Cuenca',
     author_email='dev@cuenca.com',
     description='BotMaker API Client',
