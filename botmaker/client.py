@@ -35,6 +35,17 @@ class Client:
         self._check_response(response)
         return response.json()
 
+    @staticmethod
+    def _check_response(response):
+        if response.ok:
+            body = response.json()
+            if body.get('problems'):
+                raise BotmakerException(body['problems']['message'])
+        if response.status_code == 401:
+            raise InvalidAuth
+        else:
+            response.raise_for_status()
+
     def check_whatsapp_contact(
             self,
             channel: str,
@@ -60,14 +71,3 @@ class Client:
         except KeyError:
             checked = None
         return checked
-
-    @staticmethod
-    def _check_response(response):
-        if response.ok:
-            body = response.json()
-            if body.get('problems'):
-                raise BotmakerException(body['problems']['message'])
-        if response.status_code == 401:
-            raise InvalidAuth
-        else:
-            response.raise_for_status()
