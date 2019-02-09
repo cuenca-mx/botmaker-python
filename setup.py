@@ -4,7 +4,7 @@ install_requirements = [
     'requests>=2.21.0,<2.22.0'
 ]
 
-test_requires = ['pytest', 'pytest-vcr', 'pytest', 'pycodestyle', 'coverage']
+test_requires = ['pytest', 'pytest-vcr', 'pycodestyle', 'coverage']
 
 with open('README.md', 'r') as f:
     long_description = f.read()
