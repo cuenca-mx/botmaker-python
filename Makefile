@@ -16,10 +16,6 @@ install-test:
 test: clean install-test lint
 		python setup.py test
 
-coverage: clean install-test lint
-		coverage run --source=botmaker setup.py test
-		coverage report -m
-
 lint:
 		pycodestyle setup.py botmaker/ tests/
 
