@@ -1,3 +1,6 @@
+notifications:
+  slack: cuencafinance:lz5PTiwpYrsA2i3xWzCvUH7g
+
 language: python
 
 install: make install-test
@@ -26,3 +29,17 @@ jobs:
       script:
         - python setup.py test
         - coveralls
+    - stage: PyPI Upload
+      python: 3.7
+      dist: xenial
+      sudo: true
+      script: echo "Uploading packages to PyPI"
+      deploy:
+        provider: pypi
+        user: cuenca
+        password:
+          secure: "FGmYgI539iBpvehjo/uySwZH/Tai3KMh6Q+XpPSkHauk00M//aDU/apdZbxBeBlLQ7iDnzT2pKqFEe8lmFArKw6XZAYzX2X8SPnp46HMMMkRYIeGFTIkJOHRqBBaNp9NxD0/+WFUXxsvKaH+8AWC0UZXPXEfH/bGsFt0HCUnI3XXU9ZBgbKM4WwRa43RrdM6FEF2WMK4F2Yk2qHr4GXDqqepiOvqlSQrKyBmVcVFuz5Yefkq8D26EtkFpliY6rqi9rrbZY9TkTbKatr32HSj82j1U4CITE0ayKymPGyIgTxpltLkSfPaz9BTfGnEDCkWXcQgs7pIPVu6GOoxC6mTwvgZGSfX4pCSCMvgmhuQ6BzbgXk54PA/VgVhGy9NpeTZaVfTLH7FCv+0ctbTc+yc2zvhsj0a65AwpHyE6COzy3I5/Bh+x6k7iXZPb8GZtQebXApoX2z05vCkuP+8Eu5zzeFWN6RvDkClSFMJRMGJQPJdkRr5WAb/BW3c1XjOYqiV0/zjWs+ptLuaTbmESn9cBiKDutIbdGy46jxp9241DQ/hfbcFcqyc2iki3aARlk0JSeb99Okzn173TM67RcV0RYqcHFfAVCFuOEwDDlt8xdetcUJP1glJPAs4OuKtkzb+Wnyic0yMmzsjMgJLE94IJ0+wmFdD+PanrKkIWvz3Q7Q="
+
+        on:
+          tags: true
+        distributions: sdist bdist_wheel
