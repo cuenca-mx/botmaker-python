@@ -12,7 +12,7 @@ with open('README.md', 'r') as f:
 
 setuptools.setup(
     name='botmaker',
-    version='0.2.0',
+    version='0.2.1',
     author='Cuenca',
     author_email='dev@cuenca.com',
     description='BotMaker API Client',
