@@ -11,7 +11,7 @@ def vcr_config():
     config['filter_post_data_parameters'] = [
         ('chatChannelNumber', '5215500000000'),
         ('platformContactId', '5215522222222'),
-        ('contacts', ['+55 1 55 1234 5678'])
+        ('contacts', ['+55 1 55 1234 5678']),
     ]
     return config
 

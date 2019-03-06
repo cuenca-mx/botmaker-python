@@ -18,6 +18,7 @@ test: clean install-test lint
 		python setup.py test
 
 polish:
+		black -S -l 79 **/*.py
 		isort -rc --atomic .
 
 lint:

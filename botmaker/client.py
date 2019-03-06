@@ -24,14 +24,13 @@ class Client:
     def post(self, endpoint: str, data: dict, **kwargs) -> dict:
         return self.request('post', endpoint, data, **kwargs)
 
-    def request(self,
-                method: str,
-                endpoint: str,
-                data: dict,
-                **kwargs) -> dict:
+    def request(
+        self, method: str, endpoint: str, data: dict, **kwargs
+    ) -> dict:
         url = self.BASE_URL + endpoint
         response = requests.request(
-            method, url, headers=self.headers, json=data, **kwargs)
+            method, url, headers=self.headers, json=data, **kwargs
+        )
         self._check_response(response)
         return response.json()
 
@@ -47,19 +46,14 @@ class Client:
             response.raise_for_status()
 
     def check_whatsapp_contact(
-            self,
-            channel: str,
-            phone_number: str
+        self, channel: str, phone_number: str
     ) -> Optional[str]:
         """
         Based on
         https://botmakeradmin.github.io/docs/es/#/messages-api?id=chequear-validez-de-n%C3%BAmeros-de-contactos-de-whatsapp
         """
         channel = sanitize_phone_number(channel)
-        data = dict(
-            chatChannelNumber=channel,
-            contacts=[phone_number]
-        )
+        data = dict(chatChannelNumber=channel, contacts=[phone_number])
         resp = self.post('/customer/checkWhatsAppContact', data)
         try:
             result = resp['result']
