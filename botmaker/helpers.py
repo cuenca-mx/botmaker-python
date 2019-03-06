@@ -1,6 +1,5 @@
 import re
 
-
 SANITIZE_PHONE_NUMBER = re.compile(r'[+.()\-\s]')
 
 
