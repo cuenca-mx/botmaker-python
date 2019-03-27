@@ -25,7 +25,7 @@ class Client:
         return self.request('post', endpoint, data, **kwargs)
 
     def request(
-        self, method: str, endpoint: str, data: dict, **kwargs
+            self, method: str, endpoint: str, data: dict, **kwargs
     ) -> dict:
         url = self.BASE_URL + endpoint
         response = requests.request(
@@ -46,7 +46,7 @@ class Client:
             response.raise_for_status()
 
     def check_whatsapp_contact(
-        self, channel: str, phone_number: str
+            self, channel: str, phone_number: str
     ) -> Optional[str]:
         """
         Based on
@@ -65,3 +65,15 @@ class Client:
         except KeyError:
             checked = None
         return checked
+
+    def check_whatsapp_contact_list(self, channel: str,
+                                    phone_numbers: list) -> list:
+        channel = sanitize_phone_number(channel)
+        data = dict(chatChannelNumber=channel, contacts=phone_numbers)
+        resp = self.post('/customer/checkWhatsAppContact', data)
+        try:
+            result = resp['result']
+        except KeyError:
+            # This should never happen
+            raise BotmakerException("Expected 'result' in the response body")
+        return result

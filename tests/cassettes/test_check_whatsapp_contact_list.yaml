@@ -1,0 +1,31 @@
+interactions:
+- request:
+    body: '{"contacts": ["+55 1 55 1234 5678","123"], "chatChannelNumber": "5215500000000"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['[application/json, application/xml, text/plain]']
+      Connection: [keep-alive]
+      Content-Length: ['80']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.21.0]
+      access-token: [DUMMY]
+    method: POST
+    uri: https://go.botmaker.com/api/v1.0/customer/checkWhatsAppContact
+  response:
+    body:
+      string: '{"problems":null,"result":{"+55 1 55 1234 5678":"5515512345678"}}'
+    headers:
+      Accept: ['[application/json, application/xml, text/plain]']
+      Access-Control-Allow-Credentials: ['true']
+      Access-Control-Allow-Headers: ['token, content-type, accept-encoding', 'bearer-token,access-token,
+          Content-Type,Authorization,X-Requested-With,Content-Length,Accept,Origin']
+      Access-Control-Allow-Methods: ['GET, POST, PUT, DELETE, OPTIONS, HEAD']
+      Access-Control-Allow-Origin: ['*']
+      Content-Length: ['65']
+      Content-Type: [application/json]
+      Date: ['Fri, 08 Feb 2019 21:39:21 GMT', 'Fri, 08 Feb 2019 21:39:21 GMT']
+      Server: [BotMaker]
+      Strict-Transport-Security: [max-age=86400; includeSubDomains]
+      Vary: ['Accept-Encoding, User-Agent']
+    status: {code: 200, message: OK}
+version: 1
