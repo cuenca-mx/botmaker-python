@@ -25,7 +25,7 @@ class Client:
         return self.request('post', endpoint, data, **kwargs)
 
     def request(
-        self, method: str, endpoint: str, data: dict, **kwargs
+            self, method: str, endpoint: str, data: dict, **kwargs
     ) -> dict:
         url = self.BASE_URL + endpoint
         response = requests.request(
@@ -45,18 +45,8 @@ class Client:
         else:
             response.raise_for_status()
 
-    def check_whatsapp_contact(
-        self, channel: str, phone_number: str
-    ) -> Optional[str]:
-        result = self.check_whatsapp_contact_list(channel, [phone_number])
-        try:
-            checked = result[phone_number]
-        except KeyError:
-            checked = None
-        return checked
-
-    def check_whatsapp_contact_list(
-        self, channel: str, phone_numbers: list
+    def check_whatsapp_contacts(
+            self, channel: str, phone_numbers: list
     ) -> dict:
         """
         Based on
