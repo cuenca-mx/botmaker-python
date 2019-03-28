@@ -25,7 +25,7 @@ class Client:
         return self.request('post', endpoint, data, **kwargs)
 
     def request(
-            self, method: str, endpoint: str, data: dict, **kwargs
+        self, method: str, endpoint: str, data: dict, **kwargs
     ) -> dict:
         url = self.BASE_URL + endpoint
         response = requests.request(
@@ -46,7 +46,7 @@ class Client:
             response.raise_for_status()
 
     def check_whatsapp_contacts(
-            self, channel: str, phone_numbers: list
+        self, channel: str, phone_numbers: list
     ) -> dict:
         """
         Based on
