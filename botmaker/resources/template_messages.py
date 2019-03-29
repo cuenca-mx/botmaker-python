@@ -38,12 +38,12 @@ class TemplateMessage(Resource):
         """
         from_ = sanitize_phone_number(from_)
         if chat_platform == 'whatsapp':
-            checked = cls._client.check_whatsapp_contact(from_, to)
-            if not checked:
+            check_dict = cls._client.check_whatsapp_contacts(from_, [to])
+            if to not in check_dict:
                 raise InvalidPhoneNumber(
                     f"'{to} is not from valid WhatsApp contact")
             else:
-                to = checked
+                to = check_dict[to]
         else:
             to = sanitize_phone_number(to)
         data = dict(

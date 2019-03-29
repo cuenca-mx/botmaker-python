@@ -45,23 +45,19 @@ class Client:
         else:
             response.raise_for_status()
 
-    def check_whatsapp_contact(
-        self, channel: str, phone_number: str
-    ) -> Optional[str]:
+    def check_whatsapp_contacts(
+        self, channel: str, phone_numbers: list
+    ) -> dict:
         """
         Based on
         https://botmakeradmin.github.io/docs/es/#/messages-api?id=chequear-validez-de-n%C3%BAmeros-de-contactos-de-whatsapp
         """
         channel = sanitize_phone_number(channel)
-        data = dict(chatChannelNumber=channel, contacts=[phone_number])
+        data = dict(chatChannelNumber=channel, contacts=phone_numbers)
         resp = self.post('/customer/checkWhatsAppContact', data)
         try:
             result = resp['result']
         except KeyError:
             # This should never happen
             raise BotmakerException("Expected 'result' in the response body")
-        try:
-            checked = result[phone_number]
-        except KeyError:
-            checked = None
-        return checked
+        return result
