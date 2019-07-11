@@ -15,6 +15,7 @@ class Client:
     template_messages = TemplateMessage
 
     def __init__(self, access_token: Optional[str] = None):
+        self.session = requests.Session()
         self.access_token = access_token or os.environ['BOTMAKER_ACCESS_TOKEN']
         self.headers = {'access-token': self.access_token}
         Resource._client = self
@@ -29,7 +30,7 @@ class Client:
         self, method: str, endpoint: str, data: dict, **kwargs
     ) -> dict:
         url = self.BASE_URL + endpoint
-        response = requests.request(
+        response = self.session.request(
             method, url, headers=self.headers, json=data, **kwargs
         )
         self._check_response(response)
