@@ -46,10 +46,24 @@ class Client:
         else:
             response.raise_for_status()
 
+    def check_whatsapp_contact(
+            self, channel: str, phone_number: str
+    ) -> Optional[str]:
+        """
+        Check a single phone number.
+        """
+        result = self.check_whatsapp_contacts(channel, [phone_number])
+        try:
+            checked = result[phone_number]
+        except KeyError:
+            checked = None
+        return checked
+
     def check_whatsapp_contacts(
         self, channel: str, phone_numbers: list
     ) -> dict:
         """
+        Check a list of phone numbers.
         Based on
         https://botmakeradmin.github.io/docs/es/#/messages-api?id=chequear-validez-de-n%C3%BAmeros-de-contactos-de-whatsapp
         """

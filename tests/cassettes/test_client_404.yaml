@@ -1,0 +1,28 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['2']
+      Content-Type: [application/json]
+      User-Agent: [python-requests/2.21.0]
+      access-token: [DUMMY]
+    method: GET
+    uri: https://go.botmaker.com/api/v1.0/xxx
+  response:
+    body: {string: ''}
+    headers:
+      Accept: ['[application/json, application/xml, text/plain]']
+      Access-Control-Allow-Credentials: ['true']
+      Access-Control-Allow-Headers: ['token, content-type, accept-encoding, n']
+      Access-Control-Allow-Methods: ['GET, POST, PUT, DELETE, OPTIONS, HEAD']
+      Access-Control-Allow-Origin: ['*']
+      Cache-Control: ['must-revalidate,no-cache,no-store']
+      Content-Length: ['0']
+      Content-Type: [text/html;charset=iso-8859-1]
+      Date: ['Thu, 11 Jul 2019 18:21:54 GMT', 'Thu, 11 Jul 2019 18:21:54 GMT']
+      Strict-Transport-Security: [max-age=86400; includeSubDomains]
+    status: {code: 404, message: Not Found}
+version: 1
