@@ -8,7 +8,8 @@ def test_check_whatsapp_contact(client):
     phone_number = '+55 1 55 1234 5678'
     checked_contact = '5515512345678'
     assert checked_contact == client.check_whatsapp_contact(
-        '5215500000000', phone_number)
+        '5215500000000', phone_number
+    )
 
 
 @pytest.mark.vcr

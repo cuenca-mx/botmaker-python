@@ -48,7 +48,7 @@ class Client:
             response.raise_for_status()
 
     def check_whatsapp_contact(
-            self, channel: str, phone_number: str
+        self, channel: str, phone_number: str
     ) -> Optional[str]:
         """
         Check a single phone number.
