@@ -5,12 +5,13 @@ import requests
 
 from .exc import BotmakerException, InvalidAuth
 from .helpers import sanitize_phone_number
-from .resources import Resource, TemplateMessage
+from .resources import Message, Resource, TemplateMessage
 
 
 class Client:
     BASE_URL = 'https://go.botmaker.com/api/v1.0'
 
+    messages = Message
     template_messages = TemplateMessage
 
     def __init__(self, access_token: Optional[str] = None):
