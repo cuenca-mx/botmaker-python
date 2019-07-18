@@ -13,8 +13,6 @@ def test_template_message(client):
     )
     assert tm.id
     assert tm == tm
-    assert repr(tm)
-    assert str(tm)
     assert tm.to == '5515512345678'
 
 
