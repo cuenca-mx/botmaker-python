@@ -15,6 +15,7 @@ class Client:
     template_messages = TemplateMessage
 
     def __init__(self, access_token: Optional[str] = None):
+        self.session = requests.Session()
         self.access_token = access_token or os.environ['BOTMAKER_ACCESS_TOKEN']
         self.headers = {'access-token': self.access_token}
         Resource._client = self
@@ -29,7 +30,7 @@ class Client:
         self, method: str, endpoint: str, data: dict, **kwargs
     ) -> dict:
         url = self.BASE_URL + endpoint
-        response = requests.request(
+        response = self.session.request(
             method, url, headers=self.headers, json=data, **kwargs
         )
         self._check_response(response)
@@ -46,10 +47,24 @@ class Client:
         else:
             response.raise_for_status()
 
+    def check_whatsapp_contact(
+        self, channel: str, phone_number: str
+    ) -> Optional[str]:
+        """
+        Check a single phone number.
+        """
+        result = self.check_whatsapp_contacts(channel, [phone_number])
+        try:
+            checked = result[phone_number]
+        except KeyError:
+            checked = None
+        return checked
+
     def check_whatsapp_contacts(
         self, channel: str, phone_numbers: list
     ) -> dict:
         """
+        Check a list of phone numbers.
         Based on
         https://botmakeradmin.github.io/docs/es/#/messages-api?id=chequear-validez-de-n%C3%BAmeros-de-contactos-de-whatsapp
         """

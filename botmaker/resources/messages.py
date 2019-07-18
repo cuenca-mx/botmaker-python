@@ -1,25 +1,19 @@
-from botmaker.exc import BotmakerException, InvalidPhoneNumber
+from dataclasses import dataclass
+
+from botmaker.exc import InvalidPhoneNumber
 from botmaker.helpers import sanitize_phone_number
 
 from .base import Resource
 
 
+@dataclass
 class Message(Resource):
     _endpoint = '/message/v3'
 
-    def __init__(
-            self,
-            id: str,
-            from_: str,
-            to: str,
-            message_text: str,
-            **kwargs
-    ):
-        self.id = id
-        self.from_ = from_
-        self.to = to
-        self.message_text = message_text
-        super().__init__(**kwargs)
+    id: str
+    from_: str
+    to: str
+    message_text: str
 
     @classmethod
     def create(
@@ -35,12 +29,12 @@ class Message(Resource):
         """
         from_ = sanitize_phone_number(from_)
         if chat_platform == 'whatsapp':
-            check_dict = cls._client.check_whatsapp_contacts(from_, [to])
-            if to not in check_dict:
+            checked = cls._client.check_whatsapp_contact(from_, to)
+            if not checked:
                 raise InvalidPhoneNumber(
                     f"'{to} is not from valid WhatsApp contact")
             else:
-                to = check_dict[to]
+                to = checked
         else:
             to = sanitize_phone_number(to)
         data = dict(
