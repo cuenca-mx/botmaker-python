@@ -1,25 +1,19 @@
+from dataclasses import dataclass
+
 from botmaker.exc import InvalidPhoneNumber
 from botmaker.helpers import sanitize_phone_number
 
 from .base import Resource
 
 
+@dataclass
 class Message(Resource):
     _endpoint = '/message/v3'
 
-    def __init__(
-            self,
-            id: str,
-            from_: str,
-            to: str,
-            message_text: str,
-            **kwargs
-    ):
-        self.id = id
-        self.from_ = from_
-        self.to = to
-        self.message_text = message_text
-        super().__init__(**kwargs)
+    id: str
+    from_: str
+    to: str
+    message_text: str
 
     @classmethod
     def create(

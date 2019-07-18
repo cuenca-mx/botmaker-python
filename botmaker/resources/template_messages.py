@@ -1,27 +1,20 @@
+from dataclasses import dataclass, field
+
 from botmaker.exc import InvalidPhoneNumber
 from botmaker.helpers import sanitize_phone_number
 
 from .base import Resource
 
 
+@dataclass
 class TemplateMessage(Resource):
     _endpoint = '/intent/v2'
 
-    def __init__(
-            self,
-            id: str,
-            from_: str,
-            to: str,
-            template: str,
-            params: dict,
-            **kwargs
-    ):
-        self.id = id
-        self.from_ = from_
-        self.to = to
-        self.template = template
-        self.params = params
-        super().__init__(**kwargs)
+    id: str
+    from_: str
+    to: str
+    template: str
+    params: dict = field(default_factory=dict)
 
     @classmethod
     def create(
