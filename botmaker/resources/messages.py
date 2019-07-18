@@ -1,4 +1,4 @@
-from botmaker.exc import BotmakerException, InvalidPhoneNumber
+from botmaker.exc import InvalidPhoneNumber
 from botmaker.helpers import sanitize_phone_number
 
 from .base import Resource
