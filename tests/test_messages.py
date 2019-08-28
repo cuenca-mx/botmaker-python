@@ -23,5 +23,6 @@ def test_invalid_whatsapp_number_message(client):
         client.messages.create(
             '5215500000000',
             '123',
+            check_phone=True,
             message_text='message test',
         )
