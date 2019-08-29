@@ -27,7 +27,6 @@ class Resource:
                 to = sanitize_phone_number(to)
         else:
             to = sanitize_phone_number(to)
-        to = sanitize_phone_number(to)
         body = dict(
             chatPlatform=chat_platform,
             chatChannelNumber=from_,
