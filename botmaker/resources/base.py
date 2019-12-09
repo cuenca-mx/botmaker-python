@@ -15,16 +15,13 @@ class Resource:
             check_phone: bool,
             **data):
         from_ = sanitize_phone_number(from_)
-        if check_phone:
-            if chat_platform == 'whatsapp' and check_phone:
-                checked = cls._client.check_whatsapp_contact(from_, to)
-                if not checked:
-                    raise InvalidPhoneNumber(
-                        f"'{to} is not from valid WhatsApp contact")
-                else:
-                    to = checked
+        if chat_platform == 'whatsapp' and check_phone:
+            checked = cls._client.check_whatsapp_contact(from_, to)
+            if not checked:
+                raise InvalidPhoneNumber(
+                    f"'{to} is not from valid WhatsApp contact")
             else:
-                to = sanitize_phone_number(to)
+                to = checked
         else:
             to = sanitize_phone_number(to)
         body = dict(
