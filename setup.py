@@ -13,7 +13,7 @@ except ModuleNotFoundError:
     install_requirements.append('dataclasses')
 
 test_requires = ['pytest', 'pytest-vcr', 'pycodestyle', 'pytest-cov',
-                 'black', 'isort[pipfile]']
+                 'black', 'isort[pipfile]', 'flake8', 'mipy']
 
 with open('README.md', 'r') as f:
     long_description = f.read()
