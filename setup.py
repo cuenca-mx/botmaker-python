@@ -1,14 +1,14 @@
+from importlib.machinery import SourceFileLoader
+
 import setuptools
 
-install_requirements = ['requests>=2.21.0,<2.22.0']
+install_requirements = [
+    'requests>=2.21.0,<2.22.0',
+    'dataclasses>=0.6;python_version<"3.7"',
+]
 
-# dataclasses is currently only builtin for 3.7. There is a backport on PyPi.
-# There may be an official backport in the future, which is why we don't just
-# check the python version.
-try:
-    import dataclasses
-except ModuleNotFoundError:
-    install_requirements.append('dataclasses')
+version = SourceFileLoader('version', 'botmaker/version.py').load_module()
+
 
 test_requires = [
     'pytest',
@@ -18,7 +18,7 @@ test_requires = [
     'black',
     'isort[pipfile]',
     'flake8',
-    'mipy',
+    'mypy',
 ]
 
 with open('README.md', 'r') as f:
@@ -27,7 +27,7 @@ with open('README.md', 'r') as f:
 
 setuptools.setup(
     name='botmaker',
-    version='0.3.2',
+    version=version.__version__,
     author='Cuenca',
     author_email='dev@cuenca.com',
     description='BotMaker API Client',
