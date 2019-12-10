@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+
 from .base import Resource
 
 
@@ -14,13 +15,13 @@ class TemplateMessage(Resource):
 
     @classmethod
     def create(
-            cls,
-            from_: str,
-            to: str,
-            template: str,
-            chat_platform: str = 'whatsapp',
-            check_phone: bool = True,
-            **params
+        cls,
+        from_: str,
+        to: str,
+        template: str,
+        chat_platform: str = 'whatsapp',
+        check_phone: bool = True,
+        **params,
     ):
         """
         Based on
@@ -32,4 +33,5 @@ class TemplateMessage(Resource):
             chat_platform,
             check_phone,
             template=template,
-            params=params)
+            params=params,
+        )

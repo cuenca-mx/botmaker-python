@@ -8,18 +8,15 @@ class Resource:
 
     @classmethod
     def commonCreate(
-            cls,
-            from_: str,
-            to: str,
-            chat_platform: str,
-            check_phone: bool,
-            **data):
+        cls, from_: str, to: str, chat_platform: str, check_phone: bool, **data
+    ):
         from_ = sanitize_phone_number(from_)
         if chat_platform == 'whatsapp' and check_phone:
             checked = cls._client.check_whatsapp_contact(from_, to)
             if not checked:
                 raise InvalidPhoneNumber(
-                    f"'{to} is not from valid WhatsApp contact")
+                    f"'{to} is not from valid WhatsApp contact"
+                )
             else:
                 to = checked
         else:

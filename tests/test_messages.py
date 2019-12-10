@@ -6,9 +6,7 @@ from botmaker.exc import InvalidPhoneNumber
 @pytest.mark.vcr
 def test_message(client):
     tm = client.messages.create(
-        '5215500000000',
-        '+55 1 55 1234 5678',
-        message_text='message test',
+        '5215500000000', '+55 1 55 1234 5678', message_text='message test',
     )
     assert tm.id
     assert tm == tm
