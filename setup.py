@@ -5,6 +5,7 @@ import setuptools
 install_requirements = [
     'requests>=2.21.0,<2.22.0',
     'dataclasses>=0.6;python_version<"3.7"',
+    'typing-extensions>=3.7,<3.8',
 ]
 
 version = SourceFileLoader('version', 'botmaker/version.py').load_module()

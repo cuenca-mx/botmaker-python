@@ -1,10 +1,14 @@
+from botmaker.base import BaseClient
 from botmaker.exc import InvalidPhoneNumber
 from botmaker.helpers import sanitize_phone_number
 
 
 class Resource:
-    _client = None
-    _endpoint = None
+    _client: BaseClient
+    _endpoint: str
+
+    def __init__(self, *_, **__):
+        ...
 
     @classmethod
     def commonCreate(

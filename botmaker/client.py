@@ -3,12 +3,13 @@ from typing import Optional
 
 import requests
 
+from .base import BaseClient
 from .exc import BotmakerException, InvalidAuth
 from .helpers import sanitize_phone_number
 from .resources import Message, Resource, TemplateMessage
 
 
-class Client:
+class Client(BaseClient):
     BASE_URL = 'https://go.botmaker.com/api/v1.0'
 
     messages = Message
