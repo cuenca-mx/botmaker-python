@@ -4,6 +4,7 @@
     :copyright: © 2019 Cuenca.
     :license: MIT, see LICENSE for more details.
 """
-__version__ = '0.3.2'
+__all__ = ['Client', '__version__']
 
 from .client import Client
+from .version import __version__
