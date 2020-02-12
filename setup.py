@@ -3,7 +3,7 @@ from importlib.machinery import SourceFileLoader
 import setuptools
 
 install_requirements = [
-    'requests>=2.21.0,<2.22.0',
+    'requests>=2.21.0,<3.0.0',
     'dataclasses>=0.6;python_version<"3.7"',
     'typing-extensions>=3.7,<3.8',
 ]
