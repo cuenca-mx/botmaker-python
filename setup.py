@@ -12,14 +12,14 @@ version = SourceFileLoader('version', 'botmaker/version.py').load_module()
 
 
 test_requires = [
-    'pytest',
-    'pytest-vcr',
-    'pycodestyle',
-    'pytest-cov',
-    'black',
-    'isort[pipfile]',
-    'flake8',
-    'mypy',
+    'pytest==6.2.*',
+    'pytest-vcr==1.0.*',
+    'pycodestyle==2.6.*',
+    'pytest-cov==2.10.*',
+    'black==20.8b1',
+    'isort[pipfile]==5.7.*',
+    'flake8==3.8.*',
+    'mypy==0.790',
 ]
 
 with open('README.md', 'r') as f:
