@@ -20,6 +20,7 @@ test_requires = [
     'flake8',
     'mypy',
     'types-requests',
+    'types-dataclasses',
 ]
 
 with open('README.md', 'r') as f:
