@@ -20,6 +20,7 @@ test_requires = [
     'flake8',
     'mypy',
     'types-requests',
+    'types-setuptools',
     'types-dataclasses',
 ]
 
