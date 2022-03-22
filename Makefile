@@ -2,7 +2,7 @@ SHELL := bash
 PATH := ./venv/bin:${PATH}
 PYTHON=python3.7
 PROJECT=botmaker
-isort = isort -rc -ac $(PROJECT) tests setup.py
+isort = isort $(PROJECT) tests setup.py
 black = black -S -l 79 --target-version py37 $(PROJECT) tests setup.py
 
 
@@ -27,7 +27,7 @@ lint:
 		$(isort) --check-only
 		$(black) --check
 		flake8 $(PROJECT) tests setup.py
-		mypy $(PROJECT) tests
+		mypy --install-types $(PROJECT) tests
 
 clean:
 		find . -name '*.pyc' -exec rm -f {} +
