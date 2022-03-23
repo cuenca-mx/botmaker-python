@@ -5,7 +5,6 @@ import setuptools
 install_requirements = [
     'requests>=2.21.0,<3.0.0',
     'dataclasses>=0.6;python_version<"3.7"',
-    'typing-extensions>=3.7,<3.8',
 ]
 
 version = SourceFileLoader('version', 'botmaker/version.py').load_module()
@@ -14,12 +13,11 @@ version = SourceFileLoader('version', 'botmaker/version.py').load_module()
 test_requires = [
     'pytest',
     'pytest-vcr',
-    'pycodestyle',
     'pytest-cov',
     'black',
-    'isort[pipfile]',
-    'flake8',
-    'mypy',
+    'isort',
+    'flake8==3.7.9',
+    'mypy==0.812',
 ]
 
 with open('README.md', 'r') as f:

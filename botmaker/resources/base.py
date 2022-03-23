@@ -5,7 +5,7 @@ from botmaker.helpers import sanitize_phone_number
 
 
 class Resource:
-    _client: ClassVar['botmaker.Client']  # type: ignore
+    _client: ClassVar['botmaker.Client']  # type: ignore # noqa: F821
     _endpoint: str
 
     def __init__(self, *_, **__):
