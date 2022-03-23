@@ -14,6 +14,7 @@ venv:
 		pip install --quiet --upgrade pip
 
 install-test:
+		pip install importlib-metadata==4.2.0
 		pip install -q .[test]
 
 test: clean install-test lint
