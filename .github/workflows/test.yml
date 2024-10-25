@@ -30,7 +30,9 @@ jobs:
     - name: Install dependencies
       run: make install-test
     - name: Run tests
-      run: pytest
+      run: |
+        export $(<env.template)
+        pytest
 
   coverage:
     runs-on: ubuntu-latest
