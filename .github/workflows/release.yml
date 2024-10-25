@@ -8,11 +8,11 @@ jobs:
   publish-pypi:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v4
       - name: Set up Python 3.7
         uses: actions/setup-python@v4.7.0
         with:
-          python-version: 3.8
+          python-version: 3.7
       - name: Install dependencies
         run: pip install -qU setuptools wheel twine
       - name: Generating distribution archives
