@@ -38,6 +38,6 @@ class Resource:
             return cls(resp['id'], from_, to, data['message_text'])
         if cls._endpoint == '/intent/v2':
             body['ruleNameOrId'] = data['template']
-            body['params'] = data['params']
+            body['params'] = data['params'] or {}
             resp = cls._client.post(cls._endpoint, body)
             return cls(resp['id'], from_, to, data['template'], data['params'])
