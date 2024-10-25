@@ -1,4 +1,4 @@
-from typing import ClassVar
+from typing import Any, ClassVar, Dict
 
 from botmaker.exc import InvalidPhoneNumber
 from botmaker.helpers import sanitize_phone_number
@@ -26,7 +26,7 @@ class Resource:
                 to = checked
         else:
             to = sanitize_phone_number(to)
-        body = dict(
+        body: Dict[str, Any] = dict(
             chatPlatform=chat_platform,
             chatChannelNumber=from_,
             platformContactId=to,
